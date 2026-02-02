@@ -1,10 +1,12 @@
 'use client'
 
-import { SPEAKERS } from '@/lib/meeting-types'
+import { Speaker } from '@/lib/meeting-types'
 
-export function SpeakerLegend() {
-  const speakers = Object.values(SPEAKERS)
-  // Deduplicate by name (수익화전문가 and 수익화 전문가 share same visual)
+interface SpeakerLegendProps {
+  speakers: Speaker[]
+}
+
+export function SpeakerLegend({ speakers }: SpeakerLegendProps) {
   const seen = new Set<string>()
   const unique = speakers.filter(s => {
     if (seen.has(s.name)) return false

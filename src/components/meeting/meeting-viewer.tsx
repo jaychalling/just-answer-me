@@ -93,7 +93,19 @@ export function MeetingViewer({ meta, rounds, projectId, projectTitle }: Meeting
               activeRound={activeRound}
               onRoundClick={scrollToRound}
             />
-            <SpeakerLegend />
+            <SpeakerLegend speakers={(() => {
+              const seen = new Set<string>()
+              const result: typeof rounds[0]['messages'][0]['speaker'][] = []
+              for (const round of rounds) {
+                for (const msg of round.messages) {
+                  if (!seen.has(msg.speaker.name)) {
+                    seen.add(msg.speaker.name)
+                    result.push(msg.speaker)
+                  }
+                }
+              }
+              return result
+            })()} />
           </aside>
 
           {/* Main Content */}
