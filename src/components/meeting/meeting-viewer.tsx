@@ -57,7 +57,7 @@ export function MeetingViewer({ meta, rounds, projectId, projectTitle }: Meeting
       <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border">
         <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <Link href={`/${projectId}`} className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors no-underline">
+            <Link href="/" className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors no-underline">
               <ArrowLeft className="w-4 h-4" />
               <span className="hidden sm:inline">{projectTitle || projectId}</span>
             </Link>

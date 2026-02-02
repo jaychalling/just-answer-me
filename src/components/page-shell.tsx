@@ -56,7 +56,7 @@ export function PageShell({
             {tabs.map((tab) => {
               const cfg = tabConfig[tab]
               const Icon = cfg.icon
-              const href = tab === 'main' ? `/${projectId}` : `/${projectId}/${tab}`
+              const href = tab === 'main' ? `/` : `/${tab}`
               const isActive = tab === activeTab
               return (
                 <Link
